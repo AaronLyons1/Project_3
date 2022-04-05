@@ -35,3 +35,4 @@ ship()
 
 turns = 10
 while turns > 0:
+    pass
