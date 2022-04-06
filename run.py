@@ -1,3 +1,5 @@
+from random import randint
+
 hidden_board = [{' '} * 8 for x in range(8)]
 player_board = [{' '} * 8 for x in range(8)]
 
@@ -11,6 +13,9 @@ def start_board(board):
     print('A B C D E F G H')
     print('  ')
     row_num = 1
+    for row in board:
+        print("%d|%s|" % (row_number, "|".join(row)))
+        row_number += 1
 
 def ship():
     """
