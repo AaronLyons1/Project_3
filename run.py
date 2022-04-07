@@ -1,7 +1,7 @@
 from random import randint
 
 hidden_board = [[" "] * 8 for x in range(8)]
-player_board = [[" "] * 8 for i in range(8)]
+player_board = [[" "] * 8 for x in range(8)]
 
 letters_numbers = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7}
 
@@ -11,12 +11,12 @@ def start_board(board):
     """
     This function will lay out the board and make it visible
     """
-    print('A B C D E F G H')
+    print("  A B C D E F G H")
     print("  +-+-+-+-+-+-+-+")
     row_num = 1
     for row in board:
-        print("%d|%s|" % (row_number, "|".join(row)))
-        row_number += 1
+        print("%d|%s|" % (row_num, "|".join(row)))
+        row_num += 1
 
 def ships(board):
     """
@@ -35,15 +35,13 @@ def where_is_ship():
     This will ask the player for thier inputs and input them
     """
     y_axis = input("Enter a number ranging from 1-8: ")
-    if y_axis not in '12345678':
+    while y_axis not in '12345678':
         print('Invalid, Please enter a valid row number')
-    else:
         y_axis = input("Enter a number ranging from 1-8: ")
 
     x_axis = input("Enter a letter ranging from A-H: ").upper()
-    if x_axis not in 'ABCDEFGH':
+    while x_axis not in 'ABCDEFGH':
         print('Invalid, Please enter a valid letter')
-    else:
         x_axis = input("Enter a letter ranging from A-H: ").upper()
          
     return int(y_axis) -1, letters_numbers(x_axis) #Reason for -1 is because its technically 1 on the board but its 0 in our list
@@ -63,8 +61,8 @@ if __name__ == "__main__": #This line is used to allow or prevent parts of code 
     turns = 15
     while turns > 0:
         print("Where do you think the ships are?")
-        print(player_board)
-        x_axis, y_axis = where_is_ship()
+        start_board(player_board)
+        y_axis, x_axis = where_is_ship()
         if hidden_board[x_axis][y_axis] == "x":
             print("Hit")
             player_board[x_axis][y_axis] = "X"
