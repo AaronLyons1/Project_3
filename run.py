@@ -5,6 +5,7 @@ player_board = [{' '} * 8 for x in range(8)]
 
 letters_numbers = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7}
 
+score = 0
 
 def start_board(board):
     """
@@ -22,10 +23,10 @@ def ships():
     This function will make the ships
     """
     for ship in range(5):
-         ship_x, ship_y = randint(0,7), randint(0,7)
+         ship_x, ship_y = randint(0, 7), randint(0, 7)
 
     while board[ship_x][ship_y] == "X":
-        ship_x, ship_y = randint(0,7), randint(0,7)
+        ship_x, ship_y = randint(0, 7), randint(0, 7)
 
     board[ship_x][ship_y] = 'X'
 
@@ -41,7 +42,7 @@ def where_is_ship():
 
     x_axis = input("Enter a letter ranging from A-H: ")
     if x_axis not in 'ABCDEFGH':
-         print('Invalid, Please enter a valid letter')
+        print('Invalid, Please enter a valid letter')
     else:
         x_axis = input("Enter a letter ranging from A-H: ")
          
@@ -51,7 +52,11 @@ def hit_ship():
     """
     This function will recognise if a ship was hit
     """
-    pass
+    score = 0
+    for y_axis in board:
+        for x_axis in y_axis:
+            if x_axis == 'X':
+                score += 1
 
 
 ships()
