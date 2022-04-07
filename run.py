@@ -1,7 +1,7 @@
 from random import randint
 
-hidden_board = [{' '} * 8 for x in range(8)]
-player_board = [{' '} * 8 for x in range(8)]
+hidden_board = [[" "] * 8 for x in range(8)]
+player_board = [[" "] * 8 for i in range(8)]
 
 letters_numbers = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7}
 
@@ -12,13 +12,13 @@ def start_board(board):
     This function will lay out the board and make it visible
     """
     print('A B C D E F G H')
-    print('---------------')
+    print("  +-+-+-+-+-+-+-+")
     row_num = 1
     for row in board:
         print("%d|%s|" % (row_number, "|".join(row)))
         row_number += 1
 
-def ships():
+def ships(board):
     """
     This function will make the ships
     """
@@ -40,11 +40,11 @@ def where_is_ship():
     else:
         y_axis = input("Enter a number ranging from 1-8: ")
 
-    x_axis = input("Enter a letter ranging from A-H: ")
+    x_axis = input("Enter a letter ranging from A-H: ").upper()
     if x_axis not in 'ABCDEFGH':
         print('Invalid, Please enter a valid letter')
     else:
-        x_axis = input("Enter a letter ranging from A-H: ")
+        x_axis = input("Enter a letter ranging from A-H: ").upper()
          
     return int(y_axis) -1, letters_numbers(x_axis) #Reason for -1 is because its technically 1 on the board but its 0 in our list
 
@@ -80,4 +80,6 @@ if __name__ == "__main__": #This line is used to allow or prevent parts of code 
             break
         if turns == 0:
             print("Sorry you have run out of tries")
-        
+
+
+#python3 run.py
