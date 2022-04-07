@@ -34,15 +34,18 @@ def where_is_ship():
     This will ask the player for thier inputs and input them
     """
     y_axis = input("Enter a number ranging from 1-8: ")
-    while y_axis not in '12345678':
+    if y_axis not in '12345678':
         print('Invalid, Please enter a valid row number')
+    else:
         y_axis = input("Enter a number ranging from 1-8: ")
 
     x_axis = input("Enter a letter ranging from A-H: ")
-    while x_axis not in 'ABCDEFGH':
+    if x_axis not in 'ABCDEFGH':
          print('Invalid, Please enter a valid letter')
-         x_axis = input("Enter a letter ranging from A-H: ")
-        return int(y_axis) -1, letters_numbers(x_axis) #Reason for -1 is because its technically 1 on the board but its 0 in our list
+    else:
+        x_axis = input("Enter a letter ranging from A-H: ")
+         
+    return int(y_axis) -1, letters_numbers(x_axis) #Reason for -1 is because its technically 1 on the board but its 0 in our list
 
 def hit_ship():
     """
