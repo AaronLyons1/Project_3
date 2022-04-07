@@ -17,17 +17,23 @@ def start_board(board):
         print("%d|%s|" % (row_number, "|".join(row)))
         row_number += 1
 
-def ship():
+def ships():
     """
     This function will make the ships
     """
-    pass
+    for ship in range(5):
+         ship_x, ship_y = randint(0,7), randint(0,7)
+    if board[ship_x][ship_y] == "X":
+        ship_x, ship_y = randint(0,7), randint(0,7)
+    board[ship_x][ship_y] = 'X'
 
 def where_is_ship():
     """
     This will ask the player for thier inputs and input them
     """
-    pass
+    y_row = input("Enter a number ranging from 1-8: ")
+    if y_row not in '12345678':
+        print('Invalid number, Please enter a valid row number')
 
 def hit_ship():
     """
@@ -36,7 +42,7 @@ def hit_ship():
     pass
 
 
-ship()
+ships()
 
 turns = 10
 while turns > 0:
