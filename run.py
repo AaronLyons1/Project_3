@@ -12,7 +12,7 @@ def start_board(board):
     This function will lay out the board and make it visible
     """
     print('A B C D E F G H')
-    print('  ')
+    print('---------------')
     row_num = 1
     for row in board:
         print("%d|%s|" % (row_number, "|".join(row)))
@@ -58,9 +58,26 @@ def hit_ship():
             if x_axis == 'X':
                 score += 1
 
-
-ships()
-
-turns = 10
-while turns > 0:
-    pass
+if __name__ == "__main__": #This line is used to allow or prevent parts of code from being run when the modules are imported
+    ships(hidden_board)
+    turns = 15
+    while turns > 0:
+        print("Where do you think the ships are?")
+        print(player_board)
+        x_axis, y_axis = where_is_ship()
+        if hidden_board[x_axis][y_axis] == "x":
+            print("Hit")
+            player_board[x_axis][y_axis] = "X"
+            turns -= 1
+        elif:
+            print("MISS")
+            player_board[x_axis][y_axis] = "-"
+            turns -= 1
+        elif player_board[x_axis][y_axis] = "-":
+            print("You have already hit that location")
+        if ships(player_board) == 5:
+            print("You Win")
+            break
+        if turns == 0
+            print("Sorry you have run out of tries")
+        
