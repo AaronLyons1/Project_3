@@ -69,15 +69,15 @@ if __name__ == "__main__": #This line is used to allow or prevent parts of code 
             print("Hit")
             player_board[x_axis][y_axis] = "X"
             turns -= 1
-        elif:
+        elif player_board[x_axis][y_axis] == "-":
+            print("You have already hit that location")
+        else:
             print("MISS")
             player_board[x_axis][y_axis] = "-"
             turns -= 1
-        elif player_board[x_axis][y_axis] = "-":
-            print("You have already hit that location")
         if ships(player_board) == 5:
             print("You Win")
             break
-        if turns == 0
+        if turns == 0:
             print("Sorry you have run out of tries")
         
