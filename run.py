@@ -23,17 +23,26 @@ def ships():
     """
     for ship in range(5):
          ship_x, ship_y = randint(0,7), randint(0,7)
+
     while board[ship_x][ship_y] == "X":
         ship_x, ship_y = randint(0,7), randint(0,7)
+
     board[ship_x][ship_y] = 'X'
 
 def where_is_ship():
     """
     This will ask the player for thier inputs and input them
     """
-    y_row = input("Enter a number ranging from 1-8: ")
-    while y_row not in '12345678':
-        print('Invalid number, Please enter a valid row number')
+    y_axis = input("Enter a number ranging from 1-8: ")
+    while y_axis not in '12345678':
+        print('Invalid, Please enter a valid row number')
+        y_axis = input("Enter a number ranging from 1-8: ")
+
+    x_axis = input("Enter a letter ranging from A-H: ")
+    while x_axis not in 'ABCDEFGH':
+         print('Invalid, Please enter a valid letter')
+         x_axis = input("Enter a letter ranging from A-H: ")
+        return int(y_axis) -1, letters_numbers(x_axis) #Reason for -1 is because its technically 1 on the board but its 0 in our list
 
 def hit_ship():
     """
