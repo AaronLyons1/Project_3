@@ -30,4 +30,4 @@ With the assistance of Anna Greves tutorial on deployment, I managed to deploy m
 
 ## Media
 
-The line of code here (print("%d|%s|" % (row_num, "|".join(x_axis)))) is not my own work. This was a bit of code I was stuck on and found on a Reddit thread of someone who also was experiencing the same problem I was. I am unable to find the link I had it saved, but has got lost along the lines.
+The line of code here (print("%d|%s|" % (row_num, "|".join(x_axis)))) is not my own work. This was a bit of code I was stuck on and found on a Reddit thread of someone who also was experiencing the same problem I was. I am unable to find the link I had it saved, but has got lost along the lines. 
