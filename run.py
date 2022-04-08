@@ -31,17 +31,33 @@ def where_is_ship():
     """
     This will ask the player for thier inputs and input them
     """
-    x_axis = input("Enter a number ranging from 1-8: ")
-    while x_axis not in '12345678':
-        print('Invalid, Please enter a valid row number')
-        x_axis = input("Enter a number ranging from 1-8: ")
+    y_axis = int(input("Enter a number ranging from 1-8: "))
+    if (0 >= y_axis >= 8):
+        y_axis = int(input("Enter a number ranging from 1-8: "))
+        0 >= y_axis >= 8
+    else:
+        print('ERROR, Please enter a valid row number')
+        y_axis = int(input("Enter a number ranging from 1-8: "))
+        if (0 >= y_axis >= 8):
+            y_axis = int(input("Enter a number ranging from 1-8: "))
+            0 >= y_axis >= 8
+        else:
+            print('ERROR, Please enter a valid row number')
+            y_axis = int(input("Enter a number ranging from 1-8: "))
+            if (0 >= y_axis >= 8):
+                y_axis = int(input("Enter a number ranging from 1-8: "))
+                0 >= y_axis >= 8
+            else:
+                print('ERROR, Please enter a valid row number')
+                y_axis = int(input("Enter a number ranging from 1-8: "))
 
-    y_axis = input("Enter a letter ranging from A-H: ").upper()
-    while y_axis not in 'ABCDEFGH':
+    x_axis = input("Enter a letter ranging from A-H: ").upper()
+    while x_axis not in 'ABCDEFGH':
         print('Invalid, Please enter a valid letter')
-        y_axis = input("Enter a letter ranging from A-H: ").upper()
-         
-    return int(x_axis) -1, letters_numbers[y_axis]
+        x_axis = input("Enter a letter ranging from A-H: ").upper()
+
+    return int(y_axis) -1, letters_numbers[x_axis]
+    
 
 def hit_ship(board):
     """
