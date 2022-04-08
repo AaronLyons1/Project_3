@@ -27,36 +27,25 @@ def ships(board):
 
     board[ship_y][ship_x] = 'X'
 
-def where_is_ship():
+def where_is_ship(self):
     """
     This will ask the player for thier inputs and input them
     """
-    y_axis = int(input("Enter a number ranging from 1-8: "))
-    if (0 >= y_axis >= 8):
-        y_axis = int(input("Enter a number ranging from 1-8: "))
-        0 >= y_axis >= 8
-    else:
-        print('ERROR, Please enter a valid row number')
-        y_axis = int(input("Enter a number ranging from 1-8: "))
-        if (0 >= y_axis >= 8):
-            y_axis = int(input("Enter a number ranging from 1-8: "))
-            0 >= y_axis >= 8
-        else:
-            print('ERROR, Please enter a valid row number')
-            y_axis = int(input("Enter a number ranging from 1-8: "))
-            if (0 >= y_axis >= 8):
-                y_axis = int(input("Enter a number ranging from 1-8: "))
-                0 >= y_axis >= 8
-            else:
-                print('ERROR, Please enter a valid row number')
-                y_axis = int(input("Enter a number ranging from 1-8: "))
+    try:
+        y_axis = input("Enter a number from 1-8 ").upper()
+        while y_axis not in '12345678':
+            print('Invalid, Please enter a valid number.')
+            y_axis = input("Enter the row of the ship: ")
 
-    x_axis = input("Enter a letter ranging from A-H: ").upper()
-    while x_axis not in 'ABCDEFGH':
-        print('Invalid, Please enter a valid letter')
         x_axis = input("Enter a letter ranging from A-H: ").upper()
-
-    return int(y_axis) -1, letters_numbers[x_axis]
+        while x_axis not in 'ABCDEFGH':
+            print('Invalid, Please enter a valid letter')
+            x_axis = input("Enter a letter ranging from A-H: ").upper()
+        return int(y_axis) -1, letters_numbers[x_axis]
+    except ValueError and KeyError:
+      print("Not a valid input")
+      return self.where_is_ship()
+    
     
 
 def hit_ship(board):
@@ -76,7 +65,7 @@ if __name__ == "__main__": #This line is used to allow or prevent parts of code 
     while turns > 0:
         print("Where do you think the ships are?")
         start_board(player_board)
-        y_axis, x_axis = where_is_ship()
+        y_axis, x_axis = where_is_ship(object)
         if player_board[y_axis][x_axis] == "0":
             print("You have already hit that location")
         elif hidden_board[y_axis][x_axis] == "X":
