@@ -32,15 +32,15 @@ def where_is_ship(self):
     This will ask the player for thier inputs and input them
     """
     try:
-        y_axis = input("Enter a number from 1-8 ").upper()
-        while y_axis not in '12345678':
+        y_axis = input("Enter a number from 1-6 ").upper()
+        while y_axis not in '123456':
             print('Invalid, Please enter a valid number.')
             y_axis = input("Enter the row of the ship: ")
 
-        x_axis = input("Enter a letter ranging from A-H: ").upper()
-        while x_axis not in 'ABCDEFGH':
+        x_axis = input("Enter a letter ranging from A-F: ").upper()
+        while x_axis not in 'ABCDEF':
             print('Invalid, Please enter a valid letter')
-            x_axis = input("Enter a letter ranging from A-H: ").upper()
+            x_axis = input("Enter a letter ranging from A-F: ").upper()
         return int(y_axis) -1, letters_numbers[x_axis]
     except ValueError and KeyError:
       print("Not a valid input")
@@ -82,6 +82,3 @@ if __name__ == "__main__": #This line is used to allow or prevent parts of code 
         print(f"You have {turns} turns left")
         if turns == 0:
             print("Sorry you have run out of tries")
-
-
-#python3 run.py
